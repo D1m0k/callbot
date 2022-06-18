@@ -32,7 +32,9 @@ RUN set -e \
     && echo 'load = res_speech_vosk.so' >> /etc/asterisk/modules.conf \
     && echo 'noload = res_pjsip.so' >> /etc/asterisk/modules.conf \ 
     && echo 'noload = chan_pjsip.so' >> /etc/asterisk/modules.conf 
-COPY res_speech_vosk.{a,la,so} /usr/lib/asterisk/modules
+COPY res_speech_vosk.a /usr/lib/asterisk/modules
+COPY res_speech_vosk.la /usr/lib/asterisk/modules
+COPY res_speech_vosk.so /usr/lib/asterisk/modules
 COPY res_speech_vosk.conf /etc/asterisk
 EXPOSE 5060/udp
 EXPOSE 10000-10200/udp
