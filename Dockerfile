@@ -26,9 +26,9 @@ RUN set -e \
           /var/tmp/* \
     && sed -i -e 's/noload = chan_sip.so/require = chan_sip.so/' /etc/asterisk/modules.conf \
     && mkdir /etc/asterisk/{ael,dialplan,sip} \
-    && echo '#tryinclude sip/*.conf' \
-    && echo '#tryinclude dialplan/*.conf' \
-    && echo '#tryinclude ael/*.conf' \
+    && echo '#tryinclude sip/*.conf'  >> /etc/asterisk/sip.conf \
+    && echo '#tryinclude dialplan/*.conf' >> /etc/asterisk/extensions.conf \
+    && echo '#tryinclude ael/*.conf' >> /etc/asterisk/extensions.ael\
     && echo 'load = res_speech_vosk.so' >> /etc/asterisk/modules.conf \
     && echo 'noload = res_pjsip.so' >> /etc/asterisk/modules.conf \ 
     && echo 'noload = chan_pjsip.so' >> /etc/asterisk/modules.conf 
