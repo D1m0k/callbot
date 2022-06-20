@@ -12,6 +12,7 @@ RUN dnf upgrade -y
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf config-manager --set-enabled powertools
 RUN dnf install -y\
+        nano \
         git \
         wget \
         net-tools \
@@ -181,5 +182,5 @@ RUN dnf install python3 python3-pip -y \
 # Running asterisk with user asterisk.
 EXPOSE 5060
 EXPOSE 10000-20000/UDP
-USER asterisk
+USER root
 CMD /usr/sbin/asterisk -fvvvvv
