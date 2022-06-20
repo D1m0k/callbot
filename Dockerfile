@@ -8,7 +8,7 @@ WORKDIR /etc/yum.repos.d
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* 
 RUN dnf install -y epel-release
 RUN dnf -y install dnf-plugins-core
-RUN dnf update && dnf upgrade -y
+RUN dnf upgrade -y
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf config-manager --set-enabled powertools
 RUN dnf install -y\
